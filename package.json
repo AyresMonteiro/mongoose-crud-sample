@@ -1,0 +1,13 @@
+{
+  "name": "mongoose-crud-sample",
+  "version": "1.0.0",
+  "description": "Aplicação usada na apresentação que fiz pra turma de pós-graduação em IoT.",
+  "main": "index.js",
+  "author": "Ayres Monteiro <ayresmonteiro52@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "mongoose": "^5.10.5",
+    "readline-sync": "^1.4.10"
+  }
+}
