@@ -24,6 +24,16 @@ async function addContact() {
     console.log("Error on inserting contact");
 }
 
+async function showContacts() {
+  await Contact.find({})
+    .catch(err => {
+      if (err)
+        console.log("Error in the query!");
+    })
+    .then(docs => console.log("Contacts:", docs));
+}
+
 module.exports = {
-  addContact
+  addContact,
+  showContacts
 }
