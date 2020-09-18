@@ -33,7 +33,18 @@ async function showContacts() {
     .then(docs => console.log("Contacts:", docs));
 }
 
+async function delContactById() {
+  const id = question("Insert id of contact: ");
+  await Contact.deleteOne({ _id: id })
+    .catch(err => {
+      if (err)
+        console.log("Error on delete!");
+    })
+    .then(() => console.log("Success!"));
+}
+
 module.exports = {
   addContact,
-  showContacts
+  showContacts,
+  delContactById
 }
