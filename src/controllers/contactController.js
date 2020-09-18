@@ -52,9 +52,31 @@ async function delAllContacts() {
     .then(() => console.log("Success!"));
 }
 
+async function updateContact() {
+  const id = question("Insert id of contact: ");
+  const data = {};
+
+  data["name"] = question("Insert the name: ");
+  data["age"] = question("Insert the age: ", 'INT');
+  data["address"] = question("Insert the address: ");
+  data["organization"] = question("Insert the organization: ");
+
+  const contact = await Contact.findOneAndUpdate({ _id: id }, data, {
+    useFindAndModify: true
+  })
+    .catch(err => {
+      if (err)
+        console.log("Error on update!");
+    })
+    .then(() => {
+      console.log("Success on update!");
+    })
+}
+
 module.exports = {
   addContact,
   showContacts,
   delContactById,
-  delAllContacts
+  delAllContacts,
+  updateContact
 }
