@@ -43,8 +43,18 @@ async function delContactById() {
     .then(() => console.log("Success!"));
 }
 
+async function delAllContacts() {
+  await Contact.deleteMany({})
+    .catch(err => {
+      if (err)
+        console.log("Error on delete!");
+    })
+    .then(() => console.log("Success!"));
+}
+
 module.exports = {
   addContact,
   showContacts,
-  delContactById
+  delContactById,
+  delAllContacts
 }
